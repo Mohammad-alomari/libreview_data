@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeStyle Libre Data Puller</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>FreeStyle Libre Data Puller</h1>
+    <p>Welcome! This tool helps you connect your FreeStyle Libre sensor via LibreView and retrieve your historical glucose data.</p>
+
+    <!-- Step 1: Authentication -->
+    <section id="auth-section">
+        <h2>Step 1: Connect Your LibreView Account</h2>
+        <p>Click the button below to authenticate your LibreView account with Vital.</p>
+        <button id="connect-btn">Connect LibreView</button>
+        <p id="auth-status"></p>
+    </section>
+
+    <!-- Step 2: Fetch and Plot Data -->
+    <section id="data-section" style="display: none;">
+        <h2>Step 2: Fetch Your Glucose Data</h2>
+        <form id="data-form">
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" name="start-date" required>
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" name="end-date" required>
+            <button type="submit">Fetch Data</button>
+            <button id="download-csv" style="display: none;">Download CSV</button>
+        </form>
+        <div id="data-output">
+        </div>
+        <div id="chart">
+            <canvas id="glucoseChart"></canvas>
+        </div>
+    </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
