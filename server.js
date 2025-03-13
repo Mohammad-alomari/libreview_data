@@ -55,7 +55,7 @@ app.post('/generate-link-token', async (req, res) => {
         const response = await vitalClient.link.token({
             userId,
             provider: 'abbott_libreview',
-            // Optionally add redirect_url: 'http://localhost:3000/redirect'
+            redirect_url: process.env.RENDER_EXTERNAL_URL
         });
         console.log(response)
         res.json(response);
